@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container" id="bgbox">
+     <form action="/write" method="post">
+                <h1>ASK - 질문해주세요</h1>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">질문: </label>
+                    <textarea class = "form-control" name="content" rows="3"></textarea> 
+                </div>
+                <button type="submit" class="btn btn-default">물어보기</button>
+            </form>    
+        </div>
+    </form>
+        <hr>
+         <div class="container"><h4 style="color: #a9a9a9;">HarryPotter 버전입니다 :) <br>
+            이름을 잘 봐주세요!<br> 수정 및 삭제도 가능합니다.♡</h4><br>
+        <h4 style="color: navy"><b>질문 목록</b></h4> </div>
+        <div class ="container" style="background-color : green , color : black; ">
+           <div class="container" style="padding-top:15pt;">
+            <% @posts.each do |p| %>
+                <b><%= p.name %> >><br></b>
+                <%= p.content %><br>
+                <a href ="/update/ <%= p.id %>" style="float:right; padding-right:10pt;">수정</a>
+                <a href ="/destroy/ <%= p.id %>" style="float:right; padding-right:10pt;">삭제</a>
+                <hr>
+            <% end %>
+            </div>
+        </div>
+    </body>
+</html>
